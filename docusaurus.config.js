@@ -13,7 +13,7 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'https://zexade.com/KlovitClient%20Logo.png',
-  organizationName: 'Klovit Development', // Usually your GitHub org/user name.
+  organizationName: 'Klovit', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
 
   presets: [
