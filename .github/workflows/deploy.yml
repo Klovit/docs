@@ -13,8 +13,8 @@ jobs:
       - name: Build website
         working-directory: .
         run: |
-          yarn install --frozen-lockfile
-          yarn build
+          npm install
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
