@@ -102,8 +102,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Klovit. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
       },
     }),
 };
