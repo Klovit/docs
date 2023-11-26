@@ -1,0 +1,57 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+.hero {
+  background-image: url("../../static/img/bg-light.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+:root {
+  background-repeat: no-repeat;
+  background-image: url("../../static/img/bg-light.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+[data-theme="dark"] .hero {
+  background-repeat: no-repeat;
+  background-image: url("../../static/img/bg-dark.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--irgb(82, 96, 100)padding);
+}
+
+[data-theme='dark'] {
+  background-repeat: no-repeat;
+  background-image: url("../../static/img/bg-dark.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+[data-theme='dark'] .hero__subtitle {
+color: white;
+}
+[data-theme='dark'] .hero__title {
+  color: white;
+}
+.hero__subtitle {
+  color: black;
+}
+.hero__title {
+    color: black;
+}
+[data-theme='dark'] .docs-button {
+  background-color: white;
+}
+.docs-button {
+  background-color: lightgrey;
+}
