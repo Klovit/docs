@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Klovit',
   tagline: "This is the documentation for all Klovit's projects.",
-  url: 'https://Klovit.github.io',
+  url: 'https://docs.klovit.tech',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
