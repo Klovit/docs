@@ -11,7 +11,7 @@ jobs:
           node-version: 18.x
           cache: yarn
       - name: Build website
-        working-directory: .
+        working-directory: ./
         run: |
           npm install -f
           npm run build
