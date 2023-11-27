@@ -53,8 +53,14 @@ const config = {
   ],
 
   themeConfig:
+  
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'keywords', content: 'KlovitClient, Klovit'},
+        {name: 'description', content: 'The Next-Gen Developers | Klovit'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
