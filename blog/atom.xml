@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.klovit.tech/blog</id>
-    <title>My Site Blog</title>
+    <title>Klovit Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.klovit.tech/blog"/>
-    <subtitle>My Site Blog</subtitle>
-    <icon>https://docs.klovit.tech/img/favicon.ico</icon>
+    <subtitle>Klovit Blog</subtitle>
+    <icon>https://docs.klovit.tech/https://zexade.com/KlovitClient%20Logo.png</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://docs.klovit.tech/blog/welcome</id>
