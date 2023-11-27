@@ -7,4 +7,5 @@ Well done! You have successfully installed KlovitClient. You can now send out th
 
 ## What's next?
 - [Join the Discord](https://discord.gg/fjr6D5WurC)
+- [Visit our Main Website](https://klovit.tech)
 - [Visit our GitHub](https://github.com/Klovit)
