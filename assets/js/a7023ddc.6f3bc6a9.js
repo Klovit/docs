@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkklovit=self.webpackChunkklovit||[]).push([[713],{3457:l=>{l.exports=JSON.parse('[{"label":"facebook","permalink":"/blog/tags/facebook","count":1},{"label":"hello","permalink":"/blog/tags/hello","count":1},{"label":"docusaurus","permalink":"/blog/tags/docusaurus","count":2}]')}}]);
