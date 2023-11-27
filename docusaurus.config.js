@@ -8,9 +8,9 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Klovit',
+  tagline: 'Documention for all Projects of Klovit.',
+  favicon: 'https://zexade.com/KlovitClient%20Logo.png',
 
   // Set the production url of your site here
   url: 'https://docs.klovit.tech',
