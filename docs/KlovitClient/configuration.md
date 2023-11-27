@@ -437,7 +437,7 @@ npm install pm2 -g
 ```
 Now you need to go to the dashboard directory and use:
 ```
-pm2 start index.js --name KlovitCLient
+pm2 start index.js --name KlovitClient
 ```
 
-Once you have started KlovitCLient, head to the Dashbard URL and login!
+Once you have started KlovitClient, head to the Dashbard URL and login!
