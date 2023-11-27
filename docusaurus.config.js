@@ -11,7 +11,6 @@ const config = {
   title: 'Klovit',
   tagline: 'Documention for all Projects of Klovit.',
   favicon: 'https://zexade.com/KlovitClient%20Logo.png',
-
   // Set the production url of your site here
   url: 'https://docs.klovit.tech',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -46,13 +45,6 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -77,12 +69,6 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/klovit',
-            label: 'GitHub',
-            position: 'right',
           },
         ],
       },
@@ -110,10 +96,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/Klovit',
