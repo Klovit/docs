@@ -5,7 +5,7 @@ sidebar_position: 2
 # Installation
 
 :::warning READ BEFORE PROCEEDING!
-You're supposed to at least have basic linux knowledge, and you're also supposed to understand what commands you're running.
+You're supposed to have at least basic Linux knowledge, and you're also supposed to understand what commands you're running.
 :::
 
 ## Supported Operating Systems
