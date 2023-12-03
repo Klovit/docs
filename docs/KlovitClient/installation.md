@@ -85,9 +85,9 @@ npm -v
 node -v
 ```
 
-Now to install KlovitClient, its dependencies & build the frontend:
+Now to install KlovitClient & its dependencies:
 ```bash
-git clone https://github.com/Klovit/KlovitClient.git --branch stable
+git clone https://github.com/Klovit/KlovitClient.git
 cd KlovitClient && npm install
 ```
 
