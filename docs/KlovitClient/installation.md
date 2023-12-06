@@ -50,7 +50,7 @@ sudo apt install git
 sudo apt install npm
 
 # installing NodeJS
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
 sudo apt install nodejs
 ```
 
