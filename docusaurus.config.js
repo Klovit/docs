@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/klovit/docs',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -62,7 +62,7 @@ const config = {
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'https://zexade.com/KlovitClient%20Logo.png',
       navbar: {
         title: 'Klovit',
         logo: {
