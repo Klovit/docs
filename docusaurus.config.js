@@ -43,7 +43,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/klovit/docs',
+            'https://github.com/Klovit/docs/blob/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
