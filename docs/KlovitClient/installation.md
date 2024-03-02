@@ -32,7 +32,7 @@ You're supposed to have at least basic Linux knowledge, and you're also supposed
 |   [Debian](#ubuntu-and-debian)    |    >=10       |
 |   [Windows](#windows)   |    >=10       |
 
-Suggested VPS hosting: [Geo-VM](https://geo-vm.net)
+Suggested VPS hosting: [Klovit.com](https://portal.klovit.com)
 
 
 Before you begin installation, make sure you have NodeJS v16 or above, git CLI, and Node Package Manager (NPM) v8.x or above installed.
