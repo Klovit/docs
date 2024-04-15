@@ -12,362 +12,136 @@ sidebar_position: 3
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Klovit" />
   <meta property="og:description" content="The Next-Gen Developers." />
-  <meta property="og:image" content="https://zexade.com/KlovitClient%20Logo.png" />
-  <meta name="twitter:card" content="https://zexade.com/KlovitClient%20Logo.png" />
+  <meta property="og:image" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
+  <meta name="twitter:card" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
   <meta name="twitter:title" content="Klovit" />
   <meta name="twitter:description" content="The Next-Gen Developers." />
-  <meta name="twitter:image" content="https://zexade.com/KlovitClient%20Logo.png" />
-  <meta name="twitter:image:src" content="https://zexade.com/KlovitClient%20Logo.png" />
+  <meta name="twitter:image" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
+  <meta name="twitter:image:src" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
 </head>
 # Configuration
-This page goes over the `settings.json` configuration and setting up the Nginx webserver for KlovitClient.
+This page goes over the `config.yml` configuration and setting up the Nginx webserver for KlovitClient.
 
 ## Configuring your Settings
-Because the `Settings.json` file is so large, this page will break down and explain each individual section.
+Because the `config.yml` file is so large, this page will break down and explain each individual section.
 
-```json
-{
-  "version": "0.4",
-  "name": "KlovitClient",
-  "logo": "https://zexade.com/KlovitClient%20Logo.png",
-  "discord": "",
-  "description": "The best modern Pterodactyl Client Area",
-  "defaulttheme": "default",
-  "timezone": "Asia/Kolkata",
-  "resources": {
-    "_note": "Options: MB, GB. This is only used on the user side, admin will use GB.",
-    "type": "GB"
-  },
+```yml
+---
+version: '0.5' # Version of the KlovitClient instance
+name: KlovitClient # Your Host's name
+resource_type: 'GB' # This can be either GB or MB, NOTE:- If you have chosen GB then 100% cpu will be 1 thread, if you have chosen MB then 1 thread will be 100% cpu
+website: 
+  secret: "Website secret" # Randomize this as this will be the secret of the website for the session and middleware cookie
+  url:  # URL of the dashboard
+  port: '8081' # The port on which this KlovitClient instance will run
+  description: The most reliable hosting # The description for your Hosting
+  icon: https://docs.klovit.tech/img/Klovit%20Logo.png # Logo of your hosting
 ```
 
-The start of the settings file; The `name` is the name of the Organisation/Host running KlovitClient. `discord` is the URL of the Discord Server of the Organisation/Host running KlovitClient. The `description` is the Description of your dashboard. The `timezone` is the TimeZone which you want the dashboard's time to sync with. The `resources` is the Type of resources you want the users to see, Admin's end will always use GB.
-```json
-  "website": {
-      "port": 24000,
-      "secret": "Default Secret (Change this to any string you want)"
-  },
-  "pterodactyl": {
-    "domain": "Your Pterodactyl Panel Domain",
-    "key": "Your Pterodactyl Panel API Key"
-  },
-  "ads": {
-    "enabled": true,
-    "note": "Enable this to use ad providers like Evadav, Monetag, Adsterra, etc.",
-    "note-2": "put scripts in ./themes/default/components/ads.ejs"
-  },
-
+The start of the settings file; The `name` is the name of the Organisation/Host running KlovitClient. `resource_type` is the unit of resource you want to use, valid options are - GB / MB. The `secret` is a randomly genererated password that you must keep secret as it it is what the dashboards sessions are encrypted with. The `url` is the URL of the dashboard, this is important for the authentication to work. The `port` is the port on which you want the KlovitCLient instance to be running on. The `description` is the Description of your dashboard. The `icon` is the logo of the Organisation/Host.
+```yml
+pterodactyl:
+  url: 'https://panel.example.com' # Your Pterodactyl Panel URL with "http://" or "https://"
+  api: '' # Your Pterodactyl Panel Admin API Key
+packages:
+  default: default
+  list:
+    default:
+      ram: 100 # Formatted according to "resource_type"
+      disk: 200
+      cpu: 200 # NOTE - If you have selected GB as resource_type, then 100% cpu is 1. If you have selected MB as resource_type then 100% cpu is 100
+      servers: 100
+auth:
+  supabase: # REQUIRED
+    supabase_url: '' # URL of your SupaBase Project
+    supabase_anon_key: '' # Anon/API Key of your SupaBase Project
+    oauth2:
+      google:
+        enabled: false
+      github:
+        enabled: false
+      discord:
+        enabled: true
 ```
 
-The start of second part, the `port` is the port on which you want the KlovitCLient instance to be running on. The `secret` is a randomly genererated password that you must keep secret as it it is what the dashboards sessions are encrypted with. `domain` is the URL of the Pterodactyl Instance. The `key` is the Admin API Key of your Pterodactyl Instance. The Ads - `enabled` is the option where you want the ADs to be enabled or not, if you choose to enable it then you will have to modify the `ads.ejs` file present in the `./themes/default/components` directory.
-```json
-  "linkvertise": {
-    "enabled": true,
-    "userid": "243856",
-    "coins": 2,
-    "dailyLimit": "null",
-    "minTimeToComplete": "null",
-    "timeToExpire": "null",
-    "cooldown": "null"
-  },
-  "atglinks": {
-    "enabled": true,
-    "apikey": "785159b542f060cb98b55b27a09b2034df506bff",
-    "coins": 2,
-    "dailyLimit": "null",
-    "minTimeToComplete": "null",
-    "timeToExpire": "null",
-    "cooldown": "null"
-  },
-  "linkpays": {
-    "enabled": true,
-    "apikey": "d159f15a31bf7d11cb1d7b3886b174e778acd31b",
-    "coins": 2,
-    "dailyLimit": "null",
-    "minTimeToComplete": "null",
-    "timeToExpire": "null",
-    "cooldown": "null"
-  },
-  "exeio": {
-    "enabled": true,
-    "apikey": "c47725e9a61f5984b64ea13df6d4eb6d927435b5",
-    "coins": 2,
-    "dailyLimit": "null",
-    "minTimeToComplete": "null",
-    "timeToExpire": "null",
-    "cooldown": "null"
-  },
-  "storelimits": {
-    "ram": "8192",
-    "disk": "10240",
-    "cpu": "400",
-    "servers": "8"
-  },
+The start of second part, `url` is the URL of the Pterodactyl Instance. The `api` is the Admin API Key of your Pterodactyl Instance. In the packages section, the `list` is the list of the packages. The `default` is the default package for every end-user.
+In the packages list you use the format given for the default packageor else you might run into errors. Here is a conversion of resources, `1` GB is `1024` MB and `1` Thread is `100`% CPU. The unit will be based on the value of the `resource_type` option.
+In the auth section, you have to enter the URL of your Supabase project in the `supabase_url` field. You have to enter the anon key of your SupaBase project in the `supabase_anon_key` field. In the next part, you decide which OAuth provider you want to enable. After enabling a OAuth provider, you have to configure it in SupaBase Project's settings
+```yml
+database:
+  type: 'sqlite' # Available types are 'sqlite' and 'mysql'
+  sqlite: # ONLY CONFIGURE IS YOU HAVE DATABASE TYPE AS 'sqlite'
+    sqlite_db_name: 'database.sqlite' # The database will be stored in './database/' directory
+  mysql: # ONLY CONFIGURE IS YOU HAVE DATABASE TYPE AS 'mysql'
+    mysql_db_name: 'klovitclient' # Your MYSQL DB name
+    mysql_db_host: 'localhost' # Your MYSQL DB HOST
+    mysql_db_port: '3306' # Your MYSQL DB PORT
+    mysql_db_username: 'klovitclient' # Your MYSQL Username
+    mysql_db_password:  'password@123' # You MYSQL password
+locations:
+  "1": # ID of the location on the pterodactyl panel
+    name: Default Location 1 # Display name for the location
 ```
 
-The start of third part, the `linkvertise` is a Link Shortener which pays you per impression and when users complete this they get a mount of coins configured in the settings, you can find the `apikey` on their respective dashboard the `minTimeToComplete` is in seconds, the configuration goes for the other shorteners. The `storelimits` are limits of the resources that can buy, this system uses MB to configure.
-```json
-   "stripe": {
-    "enabled": false,
-    "note": "The key is the stripe API key and the coins is the amount per £1. If the stripe API key is invalid and stripe purchases are enabled, KlovitClient will crash when attempting to do transactions.",
-    "key": "100000000000000",
-    "coins": 100
-  },
-  "note": "The database is located in the 'databases' folder.",
-  "database": "database.sqlite",
-  "api": {
-    "client": {
-      "api": {
-        "enabled": false,
-        "code": "Default API Key (Change this to any string you want)"
-      },
-      "j4r": {
-        "enabled": false,
-        "ads": [
-          {
-            "name": "Example server 1",
-            "invite": "https://discord.gg/example",
-            "id": "000000000000000000",
-            "coins": 100
-          },
-          {
-            "name": "Example server 2",
-            "invite": "https://discord.gg/example",
-            "id": "000000000000000000",
-            "coins": 200
-          }
-        ]
-      },
-      "bot": {
-        "token": "Discord bot token here",
-        "joinguild": {
-          "_comment": "The Discord bot must be in these servers and have invite permissions. Automatic guild joining will not work unless role packages are configured correctly. You can always just set it to a random role & package so that only this works.",
-          "enabled": false,
-          "guildid": [
-            "Guild ID 1"
-          ]
-        },
-        "giverole":{
-          "_comment": "Both the bot and the user must be on the server, give the specify role on registering",
-          "enabled": true,
-          "guildid": "000000000000000000",
-          "roleid": "000000000000000000"
-        }
-      },
-
- 
+The start of third part, the `database` is the configuration settings of the database which will be used to store dashboard side's information, **NOTE - User credentials and other authentication info will be stored on SupaBase's end.** First of all, you'll have to decide the type of the database in the `type` field, whether you want to use `mysql` or `sqlite`. If you have chosen SQLite as the type then, you have to set the name of the database in the `sqlite_db_name` section. The rest of the fields are for MySQL database configuration and the fields have comments on what to fill in there.
+```yml
+eggs:
+  klovitegg: # KlovitClient's identifier of the egg
+    display: MultiEgg | KlovitEgg # Display name of the egg
+    limits: # formatted according to "resource_type"
+      minimum: # The minimum resources a user can use while deploying a server
+        ram: 1 
+        disk: 1
+        cpu: 1
+      maximum: # The maximum resources a user can use while deploying a server
+        ram: null
+        disk: null
+        cpu: null
+      feature: # The limits on the following features
+        databases: 1
+        backups: 1
+        allocations: 1
+    info: # All this information can be found on the Egg's information page.
+      egg: 16 # ID of the egg
+      docker_image: ghcr.io/beastgamer81/klovitegg:latest # Docker image of the egg
+      startup: ./install.sh" # Startup command of the egg 
+      environment: # Environment variables of the egg
+        NODE_VERSION: latest
+        PMMP_VERSION: PM5
+        NODE_MAIN_FILE: index.js
 ```
 
-The start of fourth part, The `stripe` is set to false by default, it is useful if you want to use KlovitClient as a billing dashboard aswell, the rate is 1€ per decided amount of coins. The `api` is set to false by default, if you want to make external applications linked to KlovitClient, you can set it to true. The `j4r` is a feature from which the users have to join a specific servet to get some coins, the servers can be configured. The `token` is required if you want the users who login to join the Discord Server, the `guildid` is the ID of the Discord Server, it can contain multiple IDs. The `giverole` function gives roles to users when registered on the dashboard.
-```json
-        "passwordgenerator": {
-        "signup": true,
-        "note": "Use this to disable signups",
-        "length": 16
-      },
-      "allow": {
-        "newusers": true,
-        "regen": true,
-        "server": {
-          "create": true,
-          "modify": true,
-          "delete": true
-        },
-        "overresourcessuspend": false
-      },
-      "oauth2": {
-        "_comment": "Go to https://discord.dev/ and create an application to set these up.",
-        "id": "Your Discord Oauth2 ID",
-        "secret": "Your Discord Oauth2 Secret",
-        "link": "Your Client Panel's URL",
-        "callbackpath": "/callback",
-        "prompt": true,
-        "ip": {
-          "trust x-forwarded-for": true,
-          "block": [],
-          "duplicate check": false
-        }
-      },
+The start of fourth part, the egg configuration. You should use KlovitEgg or fill in the fields according to your chosen egg, the environment field is for variables.
+```yml
+coins: # Coins, the virtual currency of the host.
+  enabled: true # Must enable coins if you need the following things - Store, Link shorteners.
+  earn: # Earning of coins via various methods
+    enabled: true # Whether enable earning of coins or not. Coins must be enabled aswell or else the API Endpoints will throw errors
+    links: # Earning of coins via link shorteners
+      atglinks: # Earning of coins via ATGLinks
+        api: '785159b542f060cb98b55b27a09b2034df506bff' # Your ATGLinks API Key
+        amount: '5' # Amount of coins per link
+        dailylimit: null # Daily limit for users
+        minimumTime: '100' # Minimum time a user has to spend completing the link. (in seconds)
+  store: # The cost and per is not intended to used with 0. This is not intended to sell resources for coins. Make sure coins are enabled too, or else there can be errors.
+    enabled: false
+    ram:
+      cost: 1000 # Cost of the resource in coins
+      per: 1 # Will be in the format according to "resource_type"
+    disk:
+      cost: 1000
+      per: 1
+    cpu:
+      cost: 1000
+      per: 1
+    servers:
+      cost: 100
+      per: 1
 ```
 
-The start of fifth part, the `passwordgenerator` functions generates a password of the given length, by default it generates on signup and this can be disabled. The `allow` functions decides to allow the following things - `newusers`, `regen`(Password regeneration), `server-create`, `server-modify`, `server-delete` and decides whether to suspend users using over resources or not. The `oauth2` is the Authentication function of KlovitClient, it uses Discord OAuth2 to authenticate, the `id` is the ID of the Discord OAuth2 Application, the `secret` is the Secret of the Discord OAuth2 Application, the `link` is the Link of your KlovitClient instance with `https://` is using ssl or `http://` is using without ssl, the `block` feature blocks the given IP Addresses from accessing the dashboard, the `duplicate check` feature checks for duplicate IP addresses and blocks the duplicate ones (Useful for preventing alt accounts).
-```json
-      "ratelimits": {
-        "/callback": 2,
-        "/create": 1,
-        "/delete": 1,
-        "/modify": 1,
-        "/updateinfo": 1,
-        "/setplan": 2,
-        "/admin": 1,
-        "/regen": 1,
-        "/renew": 1,
-        "/api/userinfo": 1
-      },
-      "packages": {
-        "default": "default",
-        "list": {
-          "default": {
-            "ram": 5120,
-            "disk": 8192,
-            "cpu": 150,
-            "servers": 1
-          }
-        },
-        "rolePackages": {
-          "note": "This allows you to set a different plan to people who have a specific role however this requires the Discord bot to be configured and functioning. This is mainly used for Boost rewards",
-          "roleServer": "Server ID",
-          "roles": {
-            "Role ID": "Package Name"
-          }
-        }
-      },
-      "locations": {
-        "1": {
-          "name": "Default Location 1",
-          "package": null
-        },
-        "2": {
-          "name": "Default Location 2",
-          "package": null
-        }
-      },
-```
+The start of fifth part, the `coins` field decides whether the virtual currency is enabled or not. In the earn part, you can decide whether you want the users to earn coins by completing links, etc. You must configure the API key and the remmaining values.
+In the store section, the `enabled` field decides whether store is enabled or not, **NOTE:- COINS MUST BE ENABLED FOR STORE TO WORK.** Now, we'll do the cost and quantity configuration. Again the cost is in coins and the quantity is decided as per the value of `resource_type`.
 
-The start of sixth part, the `ratelimits` are the ratelimits for the given endpoints. The `packages` feature decides the resources of users with the assigned packages. The `rolepackages` is a function to automatically assign packages to users which have a certain role, the `roleid` should be replaced the ID of the special role you want to configure, the `Package Name` should be replaced with the specific package you want to automatically assign to the user with specific role. The `locations` is the feature to decide the available locations to deploy servers, the `1` is the ID of the location on the Pterodactyl Instance, the `name` is the identifier visible to users to deploy, the `package` is the name of the package which is allowed to deploy this location (`null` means that users with any package can deploy to this location.).
-```json
- "eggs": {
-          "klovitegg": {
-            "display": "MultiEgg | KlovitEgg",
-            "minimum": {
-              "ram": 1024,
-              "disk": 1024,
-              "cpu": 80
-            },
-            "maximum": {
-              "ram": null,
-              "disk": null,
-              "cpu": null
-            },
-            "info": {
-              "egg": 16,
-              "docker_image": "ghcr.io/pterodactyl/yolks:java_17",
-              "startup": "bash install.sh && curl -Os \"https://raw.githubusercontent.com/BeastGamer81/klovitegg/main/install.sh\"",
-              "environment": {
-                "MINECRAFT_VERSION": "latest",
-                "PMMP_VERSION": "PM5",
-                "NODE_MAIN_FILE": "index.js"
-              },
-              "feature_limits": {
-                "databases": 4,
-                "backups": 4,
-                "allocations": 2
-              }
-            }
-          }
-      },
-      "gift": {
-        "enabled": false
-      },
-      "misc": {
-        "purger":{
-          "note": "PURGER IS IN BETA CURRENTLY, WILL WORK PARTIALLY. (IT'S SAFE TO USE PURGER CURRENTLY)",
-          "enabled": false
-        },
-        "getip": {
-          "enabled": false
-        }
-      },
-      "coins": {
-        "enabled": true,
-        "leaderboard": {
-          "note": "LEADERBOARD IS IN BETA CURRENTLY, MAY NOT WORK",
-          "enabled": false
-        },
-```
-
-The start of seventh part, the `eggs` are the Eggs from the Pterodactyl Panel, the `minimum` is the minimum resources required to make a server using this egg, the `maximum` is the maximum resources that can be alloted to a server using this egg, the required information to fill the `info` section can be found on the Egg's settings on the Pterodactyl Panel. The `gift` is a feature that allows users to gift their extra resources and coins, by default this is set to false, you can set it to true anytime. The `misc` is the section for miscellaneous admmin commands that are disabled by default but, can be enabled from the `settings.json`, these commands include - `purger` to purge the servers which do not have a specific keyword, `getip` this feature allows admins to get IP of any user. The `coins` feature decides that the virtual currency is enabled or not. The `leaderboard` is the Leaderbord for the top 5 richest users on the dashboard, this feature is problematic sometimes.
-```json
-        "store": {
-          "_comment": "The cost and per is not intended to used with 0. This is not intended to sell resources for coins. Make sure coins are enabled too, or else there can be errors.",
-          "enabled": true,
-          "ram": {
-            "cost": 1000,
-            "per": 1024
-          },
-          "disk": {
-            "cost": 1000,
-            "per": 1024
-          },
-          "cpu": {
-            "cost": 1000,
-            "per": 100
-          },
-          "servers": {
-            "cost": 100,
-            "per": 1
-          }
-        }
-      }
-  }
- },
-  "whitelist": {
-    "note": "This allows only specific people to be able to use the dashboard",
-    "status": false,
-    "users": [
-      "User ID"
-    ]
-  },
-  "servercreation": {
-    "note": "You can set how much it should cost to create a server here, the default price is free",
-    "cost": 0
-  },
-  "renewals": {
-    "note": "The cost is the amount of coins required to renew, and the delay is the amount of days before they need to renew. New servers after the 1st one will also cost the renewal amount.",
-    "status": false,
-    "cost": 0,
-    "delay": 14
-  },
-```
-
-The start of eighth part, the `store` is the place where users can buy resources for coins, the Per is is in MB, the coins should be enabled for store to work. The `whitelist` feature allows you to make sure that only specific people can access the dashboard, this is disabled by default, their ID should be inserted properly. The `servercreation` is the cost of coins that users should pay to create a server, default price is `0` (free). The `renewals` is a feature which requires users to renew the servers for an amount of decided coins at the delay of the given time (Note: The time is in DAYS), by default this is set to false and the fee is `0` (free). 
-```json
-  "logging": {
-    "status": false,
-    "webhook": "Webhook URL",
-    "actions": {
-      "user": {
-        "signup": true,
-        "create server": true,
-        "gifted coins": true,
-        "modify server": true,
-        "buy servers": true,
-        "buy ram": true,
-        "buy cpu": true,
-        "buy disk": true
-      }, 
-      "admin": {
-        "set coins": true,
-        "add coins": true,
-        "set resources": true,
-        "set plan": true,
-        "create coupon": true,
-        "revoke coupon": true,
-        "remove account": true,
-        "view ip": true,
-        "purge": true
-      }
-    }
-  },
-  "antivpn": {
-    "note": "For antivpn to work, generate an apikey on https://proxycheck.io/. If you don't put a key, KlovitClient will disable antivpn.",
-    "status": false,
-    "APIKey": "Proxycheck APIKey",
-    "whitelistedIPs": ["IP address"]
-  }
-}
-```
-
-The start of ninth part, the `logging` is a feature that logs the decided actions by default this is set to false and all actions are enabled, to enable this you have to set the `status` property to `true` and input a Discord Webhook URL. The `antivpn` feature prevents VPN users, by default this is set to false, to enable this, you have to set the `status` property to `true` and input a ProxyCheck APIKEY which can be generated at [their website](https://proxycheck.io), the `whitelistedIPs` property allows you to whitelist certain IPs from the AntiVPN function.
 
 
 ## Setting Up Nginx
@@ -414,11 +188,13 @@ Now paste the following into the file. Make sure to replace `<DOMAIN>` and `<POR
 ```conf
 server {
   listen 80;
+  listen [::]80;
   server_name <DOMAIN>;
   return 301 https://$server_name$request_uri;
 }
 server {
   listen 443 ssl http2;
+  listen [::]443 ssl http2;
 
   server_name <DOMAIN>;
   ssl_certificate /etc/letsencrypt/live/<DOMAIN>/fullchain.pem;
@@ -454,7 +230,8 @@ npm install pm2 -g
 ```
 Now you need to go to the dashboard directory and use:
 ```
-pm2 start index.js --name KlovitClient
+npm run build
+pm2 start ./dist/index.js --name KlovitClient
 ```
 
 Once you have started KlovitClient, head to the Dashbard URL and login!

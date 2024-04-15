@@ -12,17 +12,14 @@ sidebar_position: 1
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Klovit" />
   <meta property="og:description" content="The Next-Gen Developers." />
-  <meta property="og:image" content="https://zexade.com/KlovitClient%20Logo.png" />
-  <meta name="twitter:card" content="https://zexade.com/KlovitClient%20Logo.png" />
+  <meta property="og:image" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
+  <meta name="twitter:card" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
   <meta name="twitter:title" content="Klovit" />
   <meta name="twitter:description" content="The Next-Gen Developers." />
-  <meta name="twitter:image" content="https://zexade.com/KlovitClient%20Logo.png" />
-  <meta name="twitter:image:src" content="https://zexade.com/KlovitClient%20Logo.png" />
+  <meta name="twitter:image" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
+  <meta name="twitter:image:src" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
 </head>
 Welcome to the Klovit Documentation, this is where you will find documentation for all our projects. You can contribute to our documentation through the [Github repo](https://github.com/Klovit/docs).
 
 # Current Projects
 1. [KlovitClient](https://docs.klovit.tech/docs/KlovitClient/Introduction)
-# Credits
-1. Thanks to [Dashactyl](https://github.com/votion-development/dashactyl) For making this project possible.
-2. Thanks to [CR072](https://cr072.holaclient.tech) for contributing in the front-end.

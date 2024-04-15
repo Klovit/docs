@@ -12,12 +12,12 @@ sidebar_position: 2
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Klovit" />
   <meta property="og:description" content="The Next-Gen Developers." />
-  <meta property="og:image" content="https://zexade.com/KlovitClient%20Logo.png" />
-  <meta name="twitter:card" content="https://zexade.com/KlovitClient%20Logo.png" />
+  <meta property="og:image" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
+  <meta name="twitter:card" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
   <meta name="twitter:title" content="Klovit" />
   <meta name="twitter:description" content="The Next-Gen Developers." />
-  <meta name="twitter:image" content="https://zexade.com/KlovitClient%20Logo.png" />
-  <meta name="twitter:image:src" content="https://zexade.com/KlovitClient%20Logo.png" />
+  <meta name="twitter:image" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
+  <meta name="twitter:image:src" content="https://docs.klovit.tech/img/Klovit%20Logo.png" />
 </head>
 # Installation
 
@@ -29,13 +29,13 @@ You're supposed to have at least basic Linux knowledge, and you're also supposed
 |    Name     |   Versions    |
 |-------------|---------------|
 |   [Ubuntu](#ubuntu-and-debian)    |    >=22.04    |
-|   [Debian](#ubuntu-and-debian)    |    >=10       |
+|   [Debian](#ubuntu-and-debian)    |    >=12       |
 |   [Windows](#windows)   |    >=10       |
 
 Suggested VPS hosting: [Klovit.com](https://portal.klovit.com)
 
 
-Before you begin installation, make sure you have NodeJS v16 or above, git CLI, and Node Package Manager (NPM) v8.x or above installed.
+Before you begin installation, make sure you have NodeJS v18 or above, git CLI, and Node Package Manager (NPM) v8.x or above installed.
 
 ## Ubuntu and Debian
 Firstly, make sure that you have all the prerequisites above installed (if you do you can skip this part).
@@ -69,7 +69,7 @@ cd KlovitClient && npm install
 
 After installing KlovitClient, edit the settings.json for your dashboard using our configuration guide.
 ```bash
-nano settings.json
+nano config.yml
 ```
 
 ## Windows
@@ -93,5 +93,5 @@ cd KlovitClient && npm install
 
 After installing KlovitClient, edit the settings.json for your dashboard using our configuration guide.
 ```bat
-start settings.json
+start config.yml
 ```

@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Klovit',
   tagline: 'Documention for all Projects of Klovit.',
-  favicon: 'https://zexade.com/KlovitClient%20Logo.png',
+  favicon: 'https://docs.klovit.tech/img/Klovit%20Logo.png',
   // Set the production url of your site here
   url: 'https://docs.klovit.tech',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -62,12 +62,12 @@ const config = {
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
       // Replace with your project's social card
-      image: 'https://zexade.com/KlovitClient%20Logo.png',
+      image: 'https://docs.klovit.tech/img/Klovit%20Logo.png',
       navbar: {
         title: 'Klovit',
         logo: {
           alt: 'Klovit Logo',
-          src: 'https://zexade.com/KlovitClient%20Logo.png',
+          src: 'https://docs.klovit.tech/img/Klovit%20Logo.png',
         },
         items: [
           {
