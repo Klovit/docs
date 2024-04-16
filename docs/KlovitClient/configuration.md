@@ -224,14 +224,15 @@ sudo ln -s /etc/nginx/sites-available/klovitclient.conf /etc/nginx/sites-enabled
   
 ## Starting KlovitClient
 
-First we need to install pm2:
+First we need to install pm2 and Astro:
 ```
+npm install astro -g
 npm install pm2 -g
 ```
 Now you need to go to the dashboard directory and use:
 ```
-npm run build
-pm2 start ./dist/index.js --name KlovitClient
+astro build
+pm2 start ./dist/server/entry.mjs --name KlovitClient
 ```
 
 Once you have started KlovitClient, head to the Dashbard URL and login!
