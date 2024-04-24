@@ -27,12 +27,12 @@ Because the `config.yml` file is so large, this page will break down and explain
 
 ```yml
 ---
-version: '0.5' # Version of the KlovitClient instance
+version: '0.5.2' # Version of the KlovitClient instance
 name: KlovitClient # Your Host's name
 resource_type: 'GB' # This can be either GB or MB, NOTE:- If you have chosen GB then 100% cpu will be 1 thread, if you have chosen MB then 1 thread will be 100% cpu
 website: 
   secret: "Website secret" # Randomize this as this will be the secret of the website for the session and middleware cookie
-  url:  # URL of the dashboard
+  url:  'https://localhost' # URL of the dashboard
   port: '8081' # The port on which this KlovitClient instance will run
   description: The most reliable hosting # The description for your Hosting
   icon: https://docs.klovit.tech/img/Klovit%20Logo.png # Logo of your hosting
@@ -41,8 +41,8 @@ website:
 The start of the settings file; The `name` is the name of the Organisation/Host running KlovitClient. `resource_type` is the unit of resource you want to use, valid options are - GB / MB. The `secret` is a randomly genererated password that you must keep secret as it it is what the dashboards sessions are encrypted with. The `url` is the URL of the dashboard, this is important for the authentication to work. The `port` is the port on which you want the KlovitCLient instance to be running on. The `description` is the Description of your dashboard. The `icon` is the logo of the Organisation/Host.
 ```yml
 pterodactyl:
-  url: 'https://panel.example.com' # Your Pterodactyl Panel URL with "http://" or "https://"
-  api: '' # Your Pterodactyl Panel Admin API Key
+  url: 'http://localhost' # Your Pterodactyl Panel URL with "http://" or "https://"
+  api: 'ptla_Hr0TVGzDe3PIgHL11uKtrQtbqflQSW9Cjw3RzaDAK2p' # Your Pterodactyl Panel Admin API Key
 packages:
   default: default
   list:
@@ -61,7 +61,7 @@ auth:
       github:
         enabled: false
       discord:
-        enabled: true
+        enabled: false
 ```
 
 The start of second part, `url` is the URL of the Pterodactyl Instance. The `api` is the Admin API Key of your Pterodactyl Instance. In the packages section, the `list` is the list of the packages. The `default` is the default package for every end-user.
